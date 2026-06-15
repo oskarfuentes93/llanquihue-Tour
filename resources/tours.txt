@@ -1,0 +1,5 @@
+Isla Huar;Calbuco;1200
+Volcán Calbuco;Calbuco;15000
+Saltos del Petrohué;Puerto Varas;8000
+Mercado de Frutillar;Frutillar;5000
+Rapel en Río Petrohué;Puerto Varas;25000

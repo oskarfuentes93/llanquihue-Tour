@@ -1,6 +1,6 @@
-package ui;
+package app;
 
-import data.GestorDatos;
+import service.GestorDatos;
 import model.Tour;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ public class Main {
         ArrayList<Tour> toursFiltrados = new ArrayList<>();
 
         for (Tour tour : listaTours) {
-            // getPrecio() devuelve el precio del tour; se compara con 5000.
             if (tour.getPrecio() > 5000) {
                 toursFiltrados.add(tour);
             }

@@ -1,5 +1,5 @@
-Isla Huar;Calbuco;1200
-Volcán Calbuco;Calbuco;15000
-Saltos del Petrohué;Puerto Varas;8000
-Mercado de Frutillar;Frutillar;5000
-Rapel en Río Petrohué;Puerto Varas;25000
+Isla Huar;Calbuco;1200;Carlos Pérez;912345678
+Volcán Calbuco;Calbuco;15000;María López;923456789
+Saltos del Petrohué;Puerto Varas;8000;Juan Soto;934567890
+Mercado de Frutillar;Frutillar;5000;Ana Torres;945678901
+Rapel en Río Petrohué;Puerto Varas;25000;Diego Muñoz;956789012

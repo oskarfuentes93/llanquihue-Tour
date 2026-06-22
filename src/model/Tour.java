@@ -1,25 +1,27 @@
 package model;
 
 // Clase que representa un Tour ofrecido por la agencia Llanquihue Tour.
-// Cada objeto Tour guarda la información de un tour: su nombre, la comuna
-// donde se realiza y su precio.
+// Cada Tour tiene un nombre, comuna, precio y un Guía asignado (composición).
 public class Tour {
 
-    // Atributos privados: solo se pueden modificar a través de los métodos
-    // get y set, no directamente desde otras clases.
+    // Atributos privados.
     private String nombre;
     private String comuna;
     private int precio;
 
-    // Constructor: permite crear un objeto Tour entregando los tres datos
-    // de una sola vez.
-    public Tour(String nombre, String comuna, int precio) {
+    // Composición: un Tour "tiene un" Guia asignado.
+    // Esto significa que el objeto Guia vive dentro del objeto Tour.
+    private Guia guia;
+
+    // Constructor: crea un Tour con todos sus datos, incluyendo el guía.
+    public Tour(String nombre, String comuna, int precio, Guia guia) {
         this.nombre = nombre;
         this.comuna = comuna;
         this.precio = precio;
+        this.guia = guia;
     }
 
-    // Getters: permiten leer el valor de cada atributo desde fuera de la clase.
+    // Getters
     public String getNombre() {
         return nombre;
     }
@@ -32,7 +34,11 @@ public class Tour {
         return precio;
     }
 
-    // Setters: permiten modificar el valor de cada atributo desde fuera de la clase.
+    public Guia getGuia() {
+        return guia;
+    }
+
+    // Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -45,15 +51,18 @@ public class Tour {
         this.precio = precio;
     }
 
-    // toString(): define cómo se va a "imprimir" un objeto Tour cuando
-    // se use System.out.println(tour). En vez de mostrar la dirección
-    // de memoria, muestra los datos del tour de forma legible.
+    public void setGuia(Guia guia) {
+        this.guia = guia;
+    }
+
+    // toString(): muestra todos los datos del tour, incluyendo el guía.
     @Override
     public String toString() {
         return "Tour{" +
                 "nombre='" + nombre + '\'' +
                 ", comuna='" + comuna + '\'' +
                 ", precio=" + precio +
+                ", guia=" + guia +
                 '}';
     }
 }

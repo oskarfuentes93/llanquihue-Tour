@@ -1,40 +1,30 @@
 package app;
-import service.GestorDatos;
-import model.Tour;
+
 import data.GestorServicios;
-import java.util.ArrayList;
-// Clase principal del programa. Aquí se ejecuta todo:
-// se cargan los tours desde el archivo, se muestran,
-// se filtran según una condición y se imprimen los resultados.
+import data.GestorEntidades;
+import ui.VentanaPrincipal;
+
+// Clase principal: punto de entrada del programa.
+// Muestra los servicios turisticos por consola, las entidades operativas
+// con instanceof, y finalmente lanza la interfaz grafica (GUI).
 public class Main {
     public static void main(String[] args) {
-        // Se crea un objeto GestorDatos para poder usar su método cargarTours().
-        GestorDatos gestor = new GestorDatos();
-        // Se llama al método que lee tours.txt y devuelve la lista de objetos Tour.
-        // Ruta relativa: apunta a la carpeta resources dentro del proyecto.
-        ArrayList<Tour> listaTours = gestor.cargarTours("resources/tours.txt");
-        // --- 1. Recorrido: mostrar todos los tours cargados ---
-        System.out.println("=== Listado completo de tours ===");
-        for (Tour tour : listaTours) {
-            System.out.println(tour);
-        }
-        // --- 2. Filtrado: mostrar solo los tours con precio mayor a 5000 ---
-        System.out.println("\n=== Tours con precio mayor a 5000 ===");
-        ArrayList<Tour> toursFiltrados = new ArrayList<>();
-        for (Tour tour : listaTours) {
-            if (tour.getPrecio() > 5000) {
-                toursFiltrados.add(tour);
-            }
-        }
-        // --- 3. Imprimir los resultados filtrados ---
-        for (Tour tour : toursFiltrados) {
-            System.out.println(tour);
-        }
 
-        // --- 4. Semana 6: Jerarquía de clases con herencia ---
-        // Se crea un objeto GestorServicios para mostrar los servicios turísticos de prueba.
-        System.out.println("\n=== Servicios turísticos (herencia) ===");
-        GestorServicios gestorServicios = new GestorServicios();
-        gestorServicios.mostrarServiciosDePrueba();
+        // --- Servicios turisticos (jerarquia de semanas anteriores) ---
+        GestorServicios gestor = new GestorServicios();
+        gestor.mostrarTodosLosServicios();
+
+        // Separador visual en consola entre una parte y la otra.
+        System.out.println("\n==================================================");
+        System.out.println("        ENTIDADES OPERATIVAS DE LA AGENCIA");
+        System.out.println("==================================================\n");
+
+        // --- Entidades operativas (Registrable + instanceof, semana actual) ---
+        GestorEntidades gestorEntidades = new GestorEntidades();
+        gestorEntidades.cargarEntidadesDePrueba();
+
+        // --- Interfaz grafica (GUI con JOptionPane) ---
+        VentanaPrincipal ventana = new VentanaPrincipal();
+        ventana.iniciar();
     }
 }

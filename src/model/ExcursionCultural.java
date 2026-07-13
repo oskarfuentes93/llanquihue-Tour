@@ -3,7 +3,6 @@ package model;
 // Subclase de ServicioTuristico que representa una excursión cultural.
 // Hereda nombre y duracionHoras, y agrega su propio atributo: lugarHistorico.
 public class ExcursionCultural extends ServicioTuristico {
-
     // Atributo propio de esta subclase.
     private String lugarHistorico;
 
@@ -22,6 +21,14 @@ public class ExcursionCultural extends ServicioTuristico {
     // Setter
     public void setLugarHistorico(String lugarHistorico) {
         this.lugarHistorico = lugarHistorico;
+    }
+
+    // mostrarInformacion(): sobrescribe el método de la superclase para mostrar
+    // también el atributo propio de esta subclase (lugarHistorico).
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("Excursión Cultural: " + nombre + " (" + duracionHoras + " horas) - Lugar: " 
+                + lugarHistorico);
     }
 
     // toString(): sobrescribe el método de la superclase para mostrar

@@ -3,7 +3,6 @@ package model;
 // Subclase de ServicioTuristico que representa un paseo lacustre.
 // Hereda nombre y duracionHoras, y agrega su propio atributo: tipoEmbarcacion.
 public class PaseoLacustre extends ServicioTuristico {
-
     // Atributo propio de esta subclase.
     private String tipoEmbarcacion;
 
@@ -22,6 +21,14 @@ public class PaseoLacustre extends ServicioTuristico {
     // Setter
     public void setTipoEmbarcacion(String tipoEmbarcacion) {
         this.tipoEmbarcacion = tipoEmbarcacion;
+    }
+
+    // mostrarInformacion(): sobrescribe el método de la superclase para mostrar
+    // también el atributo propio de esta subclase (tipoEmbarcacion).
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("Paseo Lacustre: " + nombre + " (" + duracionHoras + " horas) - Embarcación: " 
+                + tipoEmbarcacion);
     }
 
     // toString(): sobrescribe el método de la superclase para mostrar

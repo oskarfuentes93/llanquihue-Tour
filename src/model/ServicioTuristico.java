@@ -5,7 +5,6 @@ package model;
 // Las clases RutaGastronomica, PaseoLacustre y ExcursionCultural
 // heredarán de esta clase para reutilizar estos atributos y comportamientos.
 public class ServicioTuristico {
-
     // Atributos comunes a todos los servicios turísticos.
     protected String nombre;
     protected int duracionHoras;
@@ -32,6 +31,12 @@ public class ServicioTuristico {
 
     public void setDuracionHoras(int duracionHoras) {
         this.duracionHoras = duracionHoras;
+    }
+
+    // Método que será sobrescrito por cada subclase para mostrar
+    // información específica de cada tipo de servicio.
+    public void mostrarInformacion() {
+        System.out.println("Servicio turístico: " + nombre + " (" + duracionHoras + " horas)");
     }
 
     // toString(): muestra los datos básicos del servicio.

@@ -22,4 +22,17 @@ public class RecursoAgencia {
     public String getIdentificador() {
         return identificador;
     }
+
+    // Metodo toString(): entrega una representacion en texto del objeto.
+    // Al estar en la superclase, las tres subclases (GuiaTuristico, Vehiculo,
+    // ColaboradorExterno) lo heredan automaticamente, sin repetir codigo.
+    // @Override indica que se esta sobrescribiendo el toString() original
+    // que toda clase hereda de la clase Object de Java.
+    @Override
+    public String toString() {
+        return "RecursoAgencia{"
+                + "nombre='" + nombre + '\''
+                + ", identificador='" + identificador + '\''
+                + '}';
+    }
 }

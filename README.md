@@ -101,3 +101,41 @@ una interfaz gráfica básica construida con `JOptionPane`.
    - Ingresar un vehículo.
    - Mostrar todas las entidades registradas.
    - Salir.
+
+# Semana 9: Evaluación Final Transversal (EFT)
+
+En esta entrega final se consolidó el prototipo integrando lectura de datos
+desde archivo, validación mediante excepciones personalizadas y representación
+textual de objetos, cubriendo los principios de POO exigidos.
+
+## Cambios agregados en la EFT
+- **ValidacionException** (util): excepción personalizada que extiende `Exception`.
+  Se lanza cuando un dato leído desde el archivo no cumple las reglas de validación.
+- **Validador** (util): se agregó el método `validarPrecio(int)`, que lanza
+  `ValidacionException` cuando el precio es menor o igual a cero, complementando
+  los métodos booleanos existentes.
+- **GestorDatos** (service): la carga de tours desde `tours.txt` ahora valida cada
+  línea con `validarPrecio`. Si una línea trae un precio inválido, se captura la
+  excepción con try-catch, se informa por consola y se omite esa línea, sin
+  detener la carga del resto.
+- **RecursoAgencia** (model): se agregó el método `toString()`, heredado por sus
+  subclases `GuiaTuristico`, `Vehiculo` y `ColaboradorExterno`.
+- **Main** (app): ahora ejecuta la carga de tours desde `tours.txt` al inicio,
+  integrando en un solo flujo la lectura de archivos, los servicios turísticos,
+  las entidades operativas y la interfaz gráfica.
+
+## Principios de POO aplicados
+- **Encapsulamiento**: atributos privados/protegidos con getters.
+- **Herencia**: `RecursoAgencia` como superclase de tres subclases.
+- **Polimorfismo**: colección `ArrayList<Registrable>` con `instanceof`.
+- **Composición**: la clase `Tour` contiene un objeto `Guia`.
+- **Interfaces**: `Registrable` como contrato común.
+- **Excepciones personalizadas**: `ValidacionException` para validar datos.
+
+## Cómo ejecutar (Semana 9)
+1. Abrir el proyecto en NetBeans (Apache NetBeans IDE 25) con JDK 21 (Eclipse Adoptium).
+2. Verificar que el archivo `resources/tours.txt` exista en la raíz del proyecto.
+3. Clic derecho sobre `Main.java` (paquete `app`) → **Run File**, o usar el botón ▶ verde.
+4. La consola mostrará, en orden: los tours cargados desde archivo, los servicios
+   turísticos, las entidades operativas con su tipo detectado por `instanceof`, y
+   finalmente se abrirá la interfaz gráfica (`JOptionPane`).
